@@ -5,7 +5,9 @@
 [![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/top-user-agents.svg?style=flat-square)](https://david-dm.org/Kikobeats/top-user-agents#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/top-user-agents.svg?style=flat-square)](https://www.npmjs.org/package/top-user-agents)
 
-> A list of most common User Agent.
+> A list of most common User Agent used on Internet.
+
+The list is auto generated, always up to date with the [most common user agents](https://techblog.willshouse.com/2012/01/03/most-common-user-agents/).
 
 ## Install
 
@@ -17,12 +19,12 @@ $ npm install top-user-agents --save
 
 ```js
 const userAgents = require('top-user-agents')
-const uniqueRandomArray = require('unique-random-array');
+const uniqueRandomArray = require('unique-random-array')
 
 console.log(userAgents[0])
 // => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
 
-const randomUserAgent = uniqueRandomArray(userAgents);
+const randomUserAgent = uniqueRandomArray(userAgents)
 console.log(randomUserAgent())
 // => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
 ```

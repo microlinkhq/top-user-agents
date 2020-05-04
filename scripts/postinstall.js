@@ -1,11 +1,11 @@
 'use strict'
 
 const writeJsonFile = require('write-json-file')
-const cloudscraper = require('cloudscraper')
 const cheerio = require('cheerio')
+const got = require('hooman')
 
 const main = async () => {
-  const body = await cloudscraper.get(
+  const { body } = await got(
     'https://techblog.willshouse.com/2012/01/03/most-common-user-agents/'
   )
 

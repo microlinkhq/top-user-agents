@@ -1,25 +1,26 @@
-'use strict'
-
-const writeJsonFile = require('write-json-file')
-const cheerio = require('cheerio')
-const got = require('hooman')
+"use strict";
+const writeJsonFile = require("write-json-file");
+const cheerio = require("cheerio");
+const got = require("hooman");
 
 const main = async () => {
-  const { body } = await got(
-    'https://techblog.willshouse.com/2012/01/03/most-common-user-agents/'
-  )
+  try {
+    // prettier-ignore
+    const { body } = await got("https://techblog.willshouse.com/2012/01/03/most-common-user-agents/");
 
-  const $ = cheerio.load(body)
+    const $ = cheerio.load(body);
 
-  const userAgents = $('tbody .useragent')
-    .map(function () {
-      return $(this).text()
-    })
-    .get()
+    const userAgents = $("tbody .useragent")
+      .map(function() {
+        return $(this).text();
+      })
+      .get();
 
-  await writeJsonFile('index.json', userAgents)
-}
+    await writeJsonFile("index.json", userAgents);
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+};
 
-main()
-  .catch(err => console.error(err) && process.exit(1))
-  .then(process.exit)
+main();

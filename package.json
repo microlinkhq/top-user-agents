@@ -27,9 +27,9 @@
     "useragent"
   ],
   "dependencies": {
-    "cheerio": "~1.0.0-rc.3",
     "got": "~11.1.1",
     "hooman": "~1.1.0",
+    "node-html-parser": "^1.2.16",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {

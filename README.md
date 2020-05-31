@@ -2,7 +2,6 @@
 
 ![Last version](https://img.shields.io/github/tag/Kikobeats/top-user-agents.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/com/Kikobeats/top-user-agents/master.svg?style=flat-square)](https://travis-ci.com/Kikobeats/top-user-agents)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/top-user-agents.svg?style=flat-square)](https://david-dm.org/Kikobeats/top-user-agents#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/top-user-agents.svg?style=flat-square)](https://www.npmjs.org/package/top-user-agents)
 
 > A list of most common User Agent used on Internet.

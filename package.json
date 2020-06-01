@@ -2,7 +2,7 @@
   "name": "top-user-agents",
   "description": "A list of most common User Agent.",
   "homepage": "https://nicedoc.io/Kikobeats/top-user-agents",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "index.json",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",

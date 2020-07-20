@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "cheerio": "~1.0.0-rc.3",
-    "got": "~11.5.0",
+    "got": "~11.5.1",
     "hooman": "~1.2.5",
     "write-json-file": "~4.3.0"
   },

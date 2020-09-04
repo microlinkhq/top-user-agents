@@ -28,8 +28,8 @@
   ],
   "dependencies": {
     "cheerio": "~1.0.0-rc.3",
-    "got": "~11.5.1",
-    "hooman": "~1.2.5",
+    "got": "~11.6.0",
+    "hooman": "~1.2.6",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {

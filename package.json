@@ -69,7 +69,7 @@
     "test": "exit 0",
     "update:check": "ncu -- --error-level 2",
     "update:dependencies": "ncu -u",
-    "update:user-agents": "npm run postinstall && git add index.json && git commit -m 'build: update user agents' --no-verify && git push"
+    "update:user-agents": "(npm run postinstall && git add index.json && git commit -m 'build(update): user agents' --no-verify && git push) || true"
   },
   "license": "MIT",
   "commitlint": {

@@ -7,16 +7,29 @@ node_js:
 after_success: npm run coverage
 
 stages:
-  - Test
+  - name: Test
+    if: type != cron
   - name: Release
-    if: branch = master AND commit_message !~ /(release|no-release)/
+    if: type != cron AND branch = master AND commit_message !~ /(release|no-release)/
+  - name: Update
+    if: branch = master AND type = cron
 
 jobs:
   include:
+    - stage: Update
+      node_js: lts/*
+      install: npm install --no-package-lock
+      before_script:
+        - git config user.email ${GITHUB_EMAIL:-"travis@travis-ci.org"}
+        - git config user.name ${GITHUB_USER:-"Travis CI"}
+        - git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+        - git checkout master
+      script:
+        - update:user-agents
     - stage: Release
       node_js: lts/*
       install: npm install --no-package-lock
-      before_deploy:
+      before_script:
         - git config user.email ${GITHUB_EMAIL:-"travis@travis-ci.org"}
         - git config user.name ${GITHUB_USER:-"Travis CI"}
         - git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git

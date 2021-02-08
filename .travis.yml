@@ -1,7 +1,6 @@
 language: node_js
 
 node_js:
-  - lts/*
   - node
 
 after_success: npm run coverage
@@ -17,7 +16,6 @@ stages:
 jobs:
   include:
     - stage: Update
-      node_js: lts/*
       install: npm install --no-package-lock
       before_script:
         - git config user.email ${GITHUB_EMAIL:-"travis@travis-ci.org"}

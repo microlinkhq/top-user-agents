@@ -9,6 +9,12 @@
     "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
+  "contributors": [
+    {
+      "name": "Karl Horky",
+      "email": "karl.horky@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kikobeats/top-user-agents.git"
@@ -52,8 +58,8 @@
     "node": ">= 10"
   },
   "files": [
-    "index.json",
     "index.js",
+    "index.json",
     "scripts"
   ],
   "scripts": {

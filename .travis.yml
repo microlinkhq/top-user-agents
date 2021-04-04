@@ -22,8 +22,7 @@ jobs:
         - git config user.name ${GITHUB_USER:-"Travis CI"}
         - git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
         - git checkout master
-      script:
-        - update:user-agents
+      script: npm run cronjob
     - stage: Release
       node_js: lts/*
       install: npm install --no-package-lock

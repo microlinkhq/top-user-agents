@@ -76,8 +76,8 @@
     "release:github": "conventional-github-releaser -p angular",
     "release:tags": "git push --follow-tags origin HEAD:master",
     "test": "exit 0",
-    "update:check": "ncu -- --error-level 2",
     "update": "ncu -u",
+    "update:check": "ncu -- --error-level 2",
     "update:user-agents": "(npm run postinstall && git add index.json && git commit -m 'build(update): user agents' --no-verify && git push) || true"
   },
   "license": "MIT",

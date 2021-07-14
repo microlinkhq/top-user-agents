@@ -2,7 +2,7 @@
 
 const writeJsonFile = require('write-json-file')
 const cheerio = require('cheerio')
-const got = require('hooman')
+const got = require('got')
 
 const main = async () => {
   const { body } = await got(

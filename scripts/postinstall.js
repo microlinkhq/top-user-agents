@@ -5,8 +5,13 @@ const cheerio = require('cheerio')
 const got = require('got')
 
 const main = async () => {
-  const { body } = await got(
-    'https://techblog.willshouse.com/2012/01/03/most-common-user-agents/'
+  const body = await got(
+    'https://techblog.willshouse.com/2012/01/03/most-common-user-agents/',
+    {
+      retry: 0,
+      timeout: 10000,
+      resolveBodyOnly: true
+    }
   )
 
   const $ = cheerio.load(body)

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.38 (2021-08-24)
+
+
+### Bug Fixes
+
+* prevent being stuck forever ([7f7f337](https://github.com/Kikobeats/top-user-agents/commit/7f7f3379eb72b162b7ea2921bdf06a7655906e46))
+
 ### 1.0.37 (2021-08-07)
 
 ### 1.0.36 (2021-07-29)

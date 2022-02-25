@@ -27,6 +27,10 @@ console.log(randomUserAgent())
 // => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
 ```
 
+## Related
+
+- [crawler-user-agents](https://github.com/monperrus/crawler-user-agents) – A list of of HTTP user-agents used by robots, crawlers, and spiders.
+
 **top-user-agents** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/top-user-agents/blob/master/LICENSE.md) License.<br>
 Authored and maintained by [Kiko Beats](https://kikobeats.com) with help from [contributors](https://github.com/Kikobeats/top-user-agents/contributors).
 

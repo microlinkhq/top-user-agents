@@ -33,8 +33,8 @@
     "useragent"
   ],
   "dependencies": {
-    "cheerio": "~1.0.0-rc.5",
-    "got": "~11.8.2",
+    "cheerio": "~1.0.0-rc.12",
+    "got": "~11.8.5",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {

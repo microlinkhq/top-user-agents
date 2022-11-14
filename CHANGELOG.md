@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.49 (2022-11-14)
+
+
+### Bug Fixes
+
+* file extension ([f97cef6](https://github.com/Kikobeats/top-user-agents/commit/f97cef6dcfa7eb0d0e14103c09b749404790dd90))
+
 ### 1.0.48 (2022-11-14)
 
 ### 1.0.47 (2022-09-20)

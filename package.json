@@ -1,7 +1,7 @@
 {
   "name": "top-user-agents",
   "description": "A list of most common User Agent.",
-  "homepage": "https://nicedoc.io/Kikobeats/top-user-agents",
+  "homepage": "https://github.com/Kikobeats/top-user-agents",
   "version": "1.0.49",
   "main": "index.js",
   "author": {

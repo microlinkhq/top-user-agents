@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "cheerio": "~1.0.0-rc.12",
-    "got": "~11.8.6",
+    "got": "~12.5.3",
     "write-json-file": "~4.3.0"
   },
   "devDependencies": {
@@ -67,7 +67,7 @@
     "cronjob": "npm run update:user-agents && npm run healthcheck",
     "healthcheck": "curl -sL https://hc-ping.com/a12391ad-9104-419d-b789-290e31044ed1",
     "lint": "standard-markdown README.md && standard",
-    "postinstall": "node scripts/postinstall",
+    "postinstall": "node scripts/postinstall.mjs",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
     "prerelease": "npm run update:check && npm run contributors && npm run cronjob",
     "pretest": "npm run lint",

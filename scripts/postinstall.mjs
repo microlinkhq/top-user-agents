@@ -25,5 +25,5 @@ try {
   // techblog is using CloudFlare protection,
   // so it's expected to fail.
   // In that case, the fallback file commited with the project will be used.
-  process.exit(0)
+  process.exit()
 }

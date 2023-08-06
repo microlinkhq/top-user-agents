@@ -2,7 +2,7 @@
   "name": "top-user-agents",
   "description": "A list of most common User Agent.",
   "homepage": "https://github.com/Kikobeats/top-user-agents",
-  "version": "1.0.59",
+  "version": "1.0.60",
   "main": "index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",

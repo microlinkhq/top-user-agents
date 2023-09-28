@@ -15,9 +15,7 @@ try {
   const $ = load(body)
 
   const userAgents = $('tbody .useragent')
-    .map(function () {
-      return $(this).text()
-    })
+    .map((_, element) => $(element).text())
     .get()
 
   await writeJsonFile('index.json', userAgents)

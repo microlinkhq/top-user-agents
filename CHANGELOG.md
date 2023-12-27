@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.0.0 (2023-12-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* use microlink data (#31)
+
+### Features
+
+* use microlink data ([#31](https://github.com/Kikobeats/top-user-agents/issues/31)) ([66e1e03](https://github.com/Kikobeats/top-user-agents/commit/66e1e031c5b378fa2bf2b0c847aa8ede2542ed28))
+
 ### 1.0.66 (2023-11-09)
 
 ### 1.0.65 (2023-10-24)

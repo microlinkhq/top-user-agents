@@ -52,8 +52,7 @@
   },
   "files": [
     "index.js",
-    "index.json",
-    "scripts"
+    "index.json"
   ],
   "scripts": {
     "clean": "rm -rf node_modules",

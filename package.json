@@ -50,13 +50,9 @@
     "standard-markdown": "latest",
     "standard-version": "latest"
   },
-  "engines": {
-    "node": ">= 10"
-  },
   "files": [
     "index.js",
-    "index.json",
-    "scripts"
+    "index.json"
   ],
   "scripts": {
     "clean": "rm -rf node_modules",

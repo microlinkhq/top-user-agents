@@ -32,19 +32,17 @@
     "user",
     "useragent"
   ],
-  "dependencies": {
-    "cheerio": "~1.0.0-rc.12",
-    "got": "~14.0.0",
-    "write-json-file": "~5.0.0"
-  },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@ksmithut/prettier-standard": "latest",
+    "@microlink/ua": "latest",
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
+    "ioredis": "latest",
+    "isbot": "next",
     "nano-staged": "latest",
     "npm-check-updates": "latest",
     "simple-git-hooks": "latest",
@@ -63,10 +61,7 @@
   "scripts": {
     "clean": "rm -rf node_modules",
     "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
-    "cronjob": "npm run update:user-agents && npm run healthcheck",
-    "healthcheck": "curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/2345b25e-fe7d-4efd-b085-5886e6c85cc7",
     "lint": "standard-markdown README.md && standard",
-    "postinstall": "node scripts/postinstall.mjs",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
@@ -75,8 +70,7 @@
     "release:tags": "git push --follow-tags origin HEAD:master",
     "test": "exit 0",
     "update": "ncu -u",
-    "update:check": "ncu -- --error-level 2",
-    "update:user-agents": "(npm run postinstall && git add index.json && git commit -m 'build(update): user agents' --no-verify && git push) || true"
+    "update:check": "ncu -- --error-level 2"
   },
   "license": "MIT",
   "commitlint": {

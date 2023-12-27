@@ -1,10 +1,11 @@
 name: cron
 
 on:
+  workflow_dispatch:
   schedule:
-    # Cron job every day at 12:00
-    # https://crontab.guru/#0_12_*_*_*
-    - cron: '0 0 * * *'
+    # Cron job every monday
+    # https://crontab.guru/every-monday
+    - cron: '0 0 * * MON'
 
 jobs:
   test:
@@ -23,8 +24,14 @@ jobs:
         with:
           version: latest
           run_install: true
-      - name: Cron
+      - name: Update
+        env:
+          REDIS_UA_URI: ${{ secrets.REDIS_UA_URI }}
         run: |
           git config --global user.email ${{ secrets.GIT_EMAIL }}
           git config --global user.name ${{ secrets.GIT_USERNAME }}
-          npm run cronjob
+          node bin/update.js
+          git add index.json
+          git commit -m 'build(update): user agents' --no-verify
+          git push origin ${{ github.head_ref }} || true
+          curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/2345b25e-fe7d-4efd-b085-5886e6c85cc7

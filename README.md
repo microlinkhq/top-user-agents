@@ -5,7 +5,7 @@
 
 > A list of most common User Agent used on Internet.
 
-The list is auto generated, always up to date with the [most common user agents](https://techblog.willshouse.com/2012/01/03/most-common-user-agents/).
+The list is auto generated, always up to date with the most common user agents.
 
 ## Install
 

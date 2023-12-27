@@ -18,8 +18,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - name: Install
-        run: npm install --no-package-lock
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: true
       - name: Cron
         run: |
           git config --global user.email ${{ secrets.GIT_EMAIL }}

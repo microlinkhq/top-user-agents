@@ -2,7 +2,7 @@
   "name": "top-user-agents",
   "description": "A list of most common User Agent.",
   "homepage": "https://microlink.io/user-agents",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.js",
   "author": {
     "email": "hello@microlink.io",

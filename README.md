@@ -56,7 +56,7 @@ Because that, The user-agent cannot be sufficient condition to identify or repro
 
 - [https-tls](https://github.com/Kikobeats/https-tls) – Setup TLS details according to `user-agent`.
 - [top-crawler-agents](https://github.com/Kikobeats/top-crawler-agents) – A list of common crawler user agents useful for retrieving metadata from links.
-- [@microlink/ua] – A simple redis primitives to incr() and top() user agents.
+- [@microlink/ua](https://github.com/microlinkhq/ua) – A simple redis primitives to incr() and top() user agents.
 
 ## License
 

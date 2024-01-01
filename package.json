@@ -47,6 +47,7 @@
     "@microlink/ua": "latest",
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
+    "debug-logfmt": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
     "ioredis": "latest",

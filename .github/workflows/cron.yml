@@ -30,7 +30,7 @@ jobs:
         run: |
           git config --global user.email ${{ secrets.GIT_EMAIL }}
           git config --global user.name ${{ secrets.GIT_USERNAME }}
-          node bin/update.js
+          DEBUG="ua*" node bin/update.js
           git add index.json
           git commit -m 'build(update): user agents' --no-verify
           git push origin ${{ github.head_ref }} || true

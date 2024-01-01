@@ -1,18 +1,14 @@
 'use strict'
 
 const { writeFile } = require('fs/promises')
-const { isbot } = require('isbot')
-const Redis = require('ioredis')
+const { top } = require('./util')
 
-const ua = require('@microlink/ua')(new Redis(process.env.REDIS_UA_URI))
-
-async function main () {
-  const data = await ua.top(120)
-  const userAgents = data.filter(userAgent => !isbot(userAgent)).slice(0, 100)
+async function main (n) {
+  const userAgents = (await top(n)).map(([userAgent]) => userAgent)
   await writeFile('index.json', JSON.stringify(userAgents, null, 2))
 }
 
-main()
+main(100)
   .then(() => process.exit(0))
   .catch(err => {
     console.error(err)

@@ -8,13 +8,13 @@
 ![Last version](https://img.shields.io/github/tag/microlinkhq/top-user-agents.svg?style=flat-square)
 [![NPM Status](https://img.shields.io/npm/dm/top-user-agents.svg?style=flat-square)](https://www.npmjs.org/package/top-user-agents)
 
-> The top 100 HTTP [user-agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)'s most used over Internet.
+> An always up-to-date list of the top 100 HTTP [user-agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)'s most used over the Internet.
 
 **Highlights**
 
+- A simple JSON file ([Download](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/index.json)).
 - Only browser agents, not bots.
-- Automagically up to date.
-- A simple JSON file.
+- Automagically up-to-date.
 
 ## Background
 

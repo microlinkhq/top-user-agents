@@ -16,7 +16,7 @@ async function main (n) {
 
 main(Number(process.argv[2] ?? 50))
   .then(() => process.exit(0))
-  .catch(err => {
-    console.error(err)
+  .catch(error => {
+    console.error(error)
     process.exit(1)
   })

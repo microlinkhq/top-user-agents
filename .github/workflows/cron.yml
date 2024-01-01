@@ -8,7 +8,7 @@ on:
     - cron: '0 0 * * MON'
 
 jobs:
-  test:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,3 +35,24 @@ jobs:
           git commit -m 'build(update): user agents' --no-verify
           git push origin ${{ github.head_ref }} || true
           curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/2345b25e-fe7d-4efd-b085-5886e6c85cc7
+  flush:
+    depends-on: [update]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: true
+      - name: Update
+        env:
+          REDIS_UA_URI: ${{ secrets.REDIS_UA_URI }}
+        run: node bin/flush.js

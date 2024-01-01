@@ -2,14 +2,13 @@
 
 const debug = require('debug-logfmt')('ua:isbot')
 const { isbot } = require('isbot')
+const Redis = require('ioredis')
 
 const connect = () =>
   this.instance ||
   (this.instance = require('@microlink/ua')(
     new Redis(process.env.REDIS_UA_URI)
   ))
-
-const Redis = require('ioredis')
 
 const isBot = userAgent => {
   const result =

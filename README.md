@@ -1,8 +1,6 @@
 <div align="center">
   <img src="https://github.com/microlinkhq/cdn/raw/master/dist/logo/banner.png#gh-light-mode-only" alt="microlink logo">
   <img src="https://github.com/microlinkhq/cdn/raw/master/dist/logo/banner-dark.png#gh-dark-mode-only" alt="microlink logo">
-  <br>
-  <br>
 </div>
 
 ![Last version](https://img.shields.io/github/tag/microlinkhq/top-user-agents.svg?style=flat-square)
@@ -10,11 +8,7 @@
 
 > An always up-to-date list of the top 100 HTTP [user-agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)'s most used over the Internet.
 
-**Highlights**
-
-- A simple JSON file ([Download](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/index.json)).
-- Only browser agents, not bots.
-- Automagically up-to-date.
+**Download**: [All](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/index.json) / [Desktop](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/desktop.json) / [Mobile](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/mobile.json)
 
 ## Background
 
@@ -43,6 +37,8 @@ const randomUserAgent = uniqueRandomArray(userAgents)
 console.log(randomUserAgent())
 // => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
 ```
+
+You can also `require('top-user-agents/mobile')` or `require('top-user-agents/desktop')` to get the list based on the device.
 
 ## About Privacy
 

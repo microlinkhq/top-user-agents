@@ -3,7 +3,6 @@
   "description": "A list of most common User Agent.",
   "homepage": "https://microlink.io/user-agents",
   "version": "2.0.6",
-  "main": "index.js",
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
@@ -45,11 +44,12 @@
     "@commitlint/config-conventional": "latest",
     "@ksmithut/prettier-standard": "latest",
     "@microlink/ua": "latest",
+    "ava": "latest",
     "ci-publish": "latest",
-    "conventional-github-releaser": "latest",
     "debug-logfmt": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
+    "github-generate-release": "latest",
     "ioredis": "latest",
     "isbot": "next",
     "nano-staged": "latest",
@@ -60,8 +60,7 @@
     "standard-version": "latest"
   },
   "files": [
-    "index.js",
-    "index.json"
+    "src"
   ],
   "scripts": {
     "clean": "rm -rf node_modules",
@@ -71,9 +70,9 @@
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "release": "standard-version -a",
-    "release:github": "conventional-github-releaser -p angular",
+    "release:github": "github-generate-release",
     "release:tags": "git push --follow-tags origin HEAD:master",
-    "test": "exit 0",
+    "test": "ava",
     "update": "ncu -u",
     "update:check": "ncu -- --error-level 2"
   },
@@ -82,6 +81,11 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./desktop": "./src/desktop.js",
+    "./mobile": "./src/mobile.js"
   },
   "nano-staged": {
     "*.js": [

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.1.0 (2024-01-03)
+
+
+### Features
+
+* add mobile & desktop lists ([#35](https://github.com/Kikobeats/top-user-agents/issues/35)) ([ac01554](https://github.com/Kikobeats/top-user-agents/commit/ac01554e51bbaa5a579ba9ee857d12828a3cfdff))
+
 ### 2.0.6 (2024-01-01)
 
 ### 2.0.5 (2024-01-01)

@@ -1,14 +1,14 @@
 <div align="center">
-  <h4>An always up-to-date</h4>
-  <h3>top100 list of HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">user-agent</a>'s <br> most used over the Internet.</h3>
-  <h4>Download: 
-    <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/index.json">All</a>
-    <span> / </span>
-    <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/mobile.json">Mobile</a>
-    <span> / </span>
-    <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/desktop.json">Desktop</a>
-  </h4>
+  <img src="https://github.com/microlinkhq/cdn/raw/master/dist/logo/banner.png#gh-light-mode-only" alt="microlink logo">
+  <img src="https://github.com/microlinkhq/cdn/raw/master/dist/logo/banner-dark.png#gh-dark-mode-only" alt="microlink logo">
 </div>
+
+![Last version](https://img.shields.io/github/tag/microlinkhq/top-user-agents.svg?style=flat-square)
+[![NPM Status](https://img.shields.io/npm/dm/top-user-agents.svg?style=flat-square)](https://www.npmjs.org/package/top-user-agents)
+
+> An always up-to-date list of the top 100 HTTP [user-agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)'s most used over the Internet.
+
+**Download**: [All](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/index.json) / [Desktop](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/desktop.json) / [Mobile](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/mobile.json)
 
 ## Background
 
@@ -37,6 +37,8 @@ const randomUserAgent = uniqueRandomArray(userAgents)
 console.log(randomUserAgent())
 // => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
 ```
+
+You can also `require('top-user-agents/mobile')` or `require('top-user-agents/desktop')` to get the list based on the device.
 
 ## About Privacy
 

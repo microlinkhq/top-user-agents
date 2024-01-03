@@ -5,16 +5,12 @@
   <br>
 </div>
 
-![Last version](https://img.shields.io/github/tag/microlinkhq/top-user-agents.svg?style=flat-square)
-[![NPM Status](https://img.shields.io/npm/dm/top-user-agents.svg?style=flat-square)](https://www.npmjs.org/package/top-user-agents)
-
-> An always up-to-date list of the top 100 HTTP [user-agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)'s most used over the Internet.
-
-**Highlights**
-
-- A simple JSON file ([Download](https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/index.json)).
-- Only browser agents, not bots.
-- Automagically up-to-date.
+<h4 align="center">
+  <p>An always up-to-date list of the top 100 HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">user-agent</a>'s most used over the Internet.</p>
+  <p>Download: <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/index.json">All</a><span> / </span>
+  <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/mobile.json">Mobile</a><span> / </span>
+  <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/desktop.json">Desktop</a></p>
+</h4>
 
 ## Background
 

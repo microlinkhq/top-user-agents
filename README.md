@@ -1,16 +1,19 @@
 <div align="center">
   <img src="https://github.com/microlinkhq/cdn/raw/master/dist/logo/banner.png#gh-light-mode-only" alt="microlink logo">
   <img src="https://github.com/microlinkhq/cdn/raw/master/dist/logo/banner-dark.png#gh-dark-mode-only" alt="microlink logo">
-  <br>
-  <br>
 </div>
 
-<h4 align="center">
-  <p>An always up-to-date list of the top 100 HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">user-agent</a>'s most used over the Internet.</p>
-  <p>Download: <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/index.json">All</a><span> / </span>
-  <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/mobile.json">Mobile</a><span> / </span>
-  <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/desktop.json">Desktop</a></p>
-</h4>
+<div align="center">
+  <h4>An always up-to-date</h4>
+  <h3>top100 list of HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">user-agent</a>'s <br> most used over the Internet.</h3>
+  <h4>Download: 
+    <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/index.json">All</a>
+    <span> / </span>
+    <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/mobile.json">Mobile</a>
+    <span> / </span>
+    <a href="https://cdn.jsdelivr.net/gh/microlinkhq/top-user-agents@master/src/desktop.json">Desktop</a>
+  </h4>
+</div>
 
 ## Background
 

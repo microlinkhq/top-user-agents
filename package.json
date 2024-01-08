@@ -3,6 +3,11 @@
   "description": "A list of most common User Agent.",
   "homepage": "https://microlink.io/user-agents",
   "version": "2.1.0",
+  "exports": {
+    ".": "./src/index.js",
+    "./desktop": "./src/desktop.js",
+    "./mobile": "./src/mobile.js"
+  },
   "author": {
     "email": "hello@microlink.io",
     "name": "microlink.io",
@@ -82,11 +87,6 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "exports": {
-    ".": "./src/index.js",
-    "./desktop": "./src/desktop.js",
-    "./mobile": "./src/mobile.js"
   },
   "nano-staged": {
     "*.js": [

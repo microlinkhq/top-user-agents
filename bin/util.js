@@ -13,9 +13,7 @@ const connect = () =>
 const isBot = userAgent => {
   const result =
     isbot(userAgent) ||
-    ['rest-client', 'retweet', 'SpringBoard'].some(str =>
-      userAgent.includes(str)
-    )
+    ['retweet', 'CFNetwork'].some(str => userAgent.includes(str))
   if (result) debug(userAgent)
   return result
 }

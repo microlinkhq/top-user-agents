@@ -56,7 +56,7 @@
     "git-authors-cli": "latest",
     "github-generate-release": "latest",
     "ioredis": "latest",
-    "isbot": "next",
+    "isbot": "latest",
     "nano-staged": "latest",
     "npm-check-updates": "latest",
     "simple-git-hooks": "latest",

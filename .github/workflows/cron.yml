@@ -32,7 +32,7 @@ jobs:
           git config --global user.name ${{ secrets.GIT_USERNAME }}
           DEBUG="ua*" node bin/update.js
           git add src/index.json src/desktop.json src/mobile.json
-          git commit -m 'build(update): user agents' --no-verify
+          git diff-index --quiet HEAD || git commit -m 'build(update): user agents' --no-verify
           git push origin ${{ github.head_ref }} || true
           curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/2345b25e-fe7d-4efd-b085-5886e6c85cc7
   flush:

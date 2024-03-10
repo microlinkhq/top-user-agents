@@ -8,11 +8,11 @@
       "types": "./src/index.d.ts",
       "default": "./src/index.js"
     },
-    "./desktop":  {
+    "./desktop": {
       "types": "./src/index.d.ts",
       "default": "./src/desktop.js"
     },
-    "./mobile":  {
+    "./mobile": {
       "types": "./src/index.d.ts",
       "default": "./src/mobile.js"
     }

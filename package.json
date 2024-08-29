@@ -25,7 +25,7 @@
   },
   "contributors": [
     {
-      "name": "Kiko Beats",
+      "name": "Kiko",
       "email": "josefrancisco.verdu@gmail.com"
     },
     {
@@ -35,6 +35,10 @@
     {
       "name": "Kevin van Rijn",
       "email": "6368561+kevinvanrijn@users.noreply.github.com"
+    },
+    {
+      "name": "Sukka",
+      "email": "isukkaw@gmail.com"
     }
   ],
   "repository": {

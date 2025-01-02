@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -33,7 +33,7 @@ jobs:
           DEBUG="ua*" node bin/update.js
           git add src/index.json src/desktop.json src/mobile.json
           git diff-index --quiet HEAD || git commit -m 'build(update): user agents' --no-verify
-          git push || true
+          git push origin ${{ github.head_ref }} || true
           curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/2345b25e-fe7d-4efd-b085-5886e6c85cc7
   flush:
     needs: [update]

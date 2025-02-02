@@ -13,7 +13,9 @@ const connect = () =>
 const isBot = userAgent => {
   const result =
     isbot(userAgent) ||
-    ['CFNetwork', 'retweet'].some(str => userAgent.includes(str))
+    ['NetworkingExtension', 'CFNetwork', 'retweet'].some(str =>
+      userAgent.includes(str)
+    )
   if (result) debug(userAgent)
   return result
 }

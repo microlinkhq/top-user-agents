@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.32 (2025-02-02)
+
+
+### Bug Fixes
+
+* remove NetworkingExtension ([9aba987](https://github.com/Kikobeats/top-user-agents/commit/9aba9875930e5c069ef27c0749a5102388cfc894))
+
 ### 2.1.31 (2025-01-27)
 
 ### 2.1.30 (2025-01-20)

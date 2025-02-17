@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.36 (2025-02-17)
+
+
+### Bug Fixes
+
+* exclude Cloudinary ([#42](https://github.com/Kikobeats/top-user-agents/issues/42)) ([6ad721c](https://github.com/Kikobeats/top-user-agents/commit/6ad721c9a8fe0bf44e5a7ca1fa17e8dcfeae85f4)), closes [#41](https://github.com/Kikobeats/top-user-agents/issues/41)
+
 ### 2.1.35 (2025-02-17)
 
 ### 2.1.34 (2025-02-10)

@@ -13,8 +13,8 @@ const connect = () =>
 const isBot = userAgent => {
   const result =
     isbot(userAgent) ||
-    ['NetworkingExtension', 'CFNetwork', 'retweet'].some(str =>
-      userAgent.includes(str)
+    ['cfnetwork', 'cloudinary', 'networkingextension', 'retweet'].some(str =>
+      userAgent.toLowerCase().includes(str)
     )
   if (result) debug(userAgent)
   return result

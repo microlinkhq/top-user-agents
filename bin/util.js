@@ -10,12 +10,18 @@ const connect = () =>
     new Redis(process.env.REDIS_UA_URI)
   ))
 
+const EXCLUSIONS = [
+  'Dart/',
+  'cfnetwork',
+  'cloudinary',
+  'networkingextension',
+  'retweet'
+]
+
 const isBot = userAgent => {
   const result =
     isbot(userAgent) ||
-    ['cfnetwork', 'cloudinary', 'networkingextension', 'retweet'].some(str =>
-      userAgent.toLowerCase().includes(str)
-    )
+    EXCLUSIONS.some(str => userAgent.toLowerCase().includes(str))
   if (result) debug(userAgent)
   return result
 }

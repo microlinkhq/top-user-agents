@@ -2,7 +2,7 @@
   "name": "top-user-agents",
   "description": "A list of most common User Agent.",
   "homepage": "https://microlink.io/user-agents",
-  "version": "2.1.81",
+  "version": "2.1.82",
   "types": "./src/index.d.ts",
   "exports": {
     ".": {

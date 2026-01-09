@@ -11,11 +11,12 @@ const connect = () =>
   ))
 
 const EXCLUSIONS = [
-  'Dart/',
   'cfnetwork',
   'cloudinary',
+  'dart/',
   'networkingextension',
-  'retweet'
+  'retweet',
+  'supabaseedgeruntime/'
 ]
 
 const isBot = userAgent => {

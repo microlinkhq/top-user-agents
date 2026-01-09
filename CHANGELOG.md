@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.89 (2026-01-09)
+
+
+### Bug Fixes
+
+* exclude supabaseedgeruntime ([8415a85](https://github.com/Kikobeats/top-user-agents/commit/8415a85487dc77fd5968a2ce8160844b47b08252))
+
 ### 2.1.88 (2026-01-05)
 
 ### 2.1.87 (2025-12-29)

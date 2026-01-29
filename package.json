@@ -1,6 +1,6 @@
 {
   "name": "top-user-agents",
-  "description": "A list of most common User Agent.",
+  "description": "An always up-to-date list of the top 100 most common browser user-agents for HTTP requests",
   "homepage": "https://microlink.io/user-agents",
   "version": "2.1.92",
   "types": "./src/index.d.ts",
@@ -43,19 +43,30 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kikobeats/top-user-agents.git"
+    "url": "git+https://github.com/microlinkhq/top-user-agents.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/top-user-agents/issues"
+    "url": "https://github.com/microlinkhq/top-user-agents/issues"
   },
   "keywords": [
-    "agent",
+    "bot",
+    "browser",
     "common",
+    "crawler",
+    "desktop",
+    "fake",
+    "header",
+    "http",
+    "list",
+    "mobile",
     "popular",
-    "string",
+    "random",
+    "request",
+    "scraping",
+    "spoof",
     "top",
     "ua",
-    "user",
+    "user-agent",
     "useragent"
   ],
   "devDependencies": {

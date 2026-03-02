@@ -11,7 +11,9 @@ const connect = () =>
   ))
 
 const EXCLUSIONS = [
+  'autofill',
   'cfnetwork',
+  'claude',
   'cloudinary',
   'dart/',
   'networkingextension',

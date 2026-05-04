@@ -73,7 +73,7 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@microlink/ua": "latest",
-    "ava": "7",
+    "ava": "8",
     "ci-publish": "latest",
     "debug-logfmt": "latest",
     "finepack": "latest",

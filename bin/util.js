@@ -18,6 +18,7 @@ const EXCLUSIONS = [
   'dart/',
   'networkingextension',
   'retweet',
+  'shields.io',
   'supabaseedgeruntime/'
 ]
 

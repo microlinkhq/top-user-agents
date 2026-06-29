@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.121 (2026-06-29)
+
+
+### Bug Fixes
+
+* exclude Shields.io ([#52](https://github.com/microlinkhq/top-user-agents/issues/52)) ([21fb192](https://github.com/microlinkhq/top-user-agents/commit/21fb1926431b52971ebcadcbfac436a4f5625cd3)), closes [#51](https://github.com/microlinkhq/top-user-agents/issues/51)
+
 ### 2.1.120 (2026-06-29)
 
 ### 2.1.119 (2026-06-29)

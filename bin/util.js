@@ -30,11 +30,26 @@ const isBot = userAgent => {
   return result
 }
 
+/**
+ * Keep the top `n` non-bot user agents.
+ * Throws when filtering cannot fill the requested size so we never
+ * publish an empty/short list after a Redis flush or sparse dataset.
+ */
+const selectTopUserAgents = (data, n) => {
+  const filtered = data.filter(userAgent => !isBot(userAgent[0])).slice(0, n)
+  if (filtered.length < n) {
+    throw new Error(
+      `Unable to collect ${n} non-bot user agents (got ${filtered.length}). Refusing to update.`
+    )
+  }
+  return filtered
+}
+
 const top = async n => {
   const ua = connect()
   const limit = n + Math.round(n * 0.3)
   const data = await ua.top(limit, { withScore: true })
-  return data.filter(userAgent => !isBot(userAgent[0])).slice(0, n)
+  return selectTopUserAgents(data, n)
 }
 
-module.exports = { top }
+module.exports = { top, selectTopUserAgents, isBot }

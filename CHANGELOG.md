@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.124 (2026-07-22)
+
+
+### Bug Fixes
+
+* refuse to publish short user-agent lists ([#54](https://github.com/microlinkhq/top-user-agents/issues/54)) ([205ae0d](https://github.com/microlinkhq/top-user-agents/commit/205ae0d4baa101de46968b3848b540aaaa0d27a0))
+
 ### 2.1.123 (2026-07-20)
 
 ### 2.1.122 (2026-07-06)

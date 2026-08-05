@@ -34,8 +34,8 @@ jobs:
           DEBUG="ua*" node bin/update.js
           git add src/index.json src/desktop.json src/mobile.json
           git diff-index --quiet HEAD || git commit -m 'build(update): user agents' --no-verify
-          # Fail the job if push fails so flush (needs: update) cannot wipe Redis
-          # after a commit that never reached master.
+          # Must fail the job: flush (needs: update) wipes Redis, so it cannot
+          # run after a commit that never reached master.
           git push origin HEAD:master
           curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/2345b25e-fe7d-4efd-b085-5886e6c85cc7
   flush:

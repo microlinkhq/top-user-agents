@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.128 (2026-08-05)
+
+
+### Bug Fixes
+
+* do not flush Redis after a failed cron push ([#55](https://github.com/microlinkhq/top-user-agents/issues/55)) ([e7aedba](https://github.com/microlinkhq/top-user-agents/commit/e7aedbae95716b0e7d9c4cb8c0972f85c79818ed))
+
 ### 2.1.127 (2026-08-03)
 
 ### 2.1.126 (2026-08-03)

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.136 (2026-09-14)
+
+
+### Bug Fixes
+
+* exclude Shap-User ([#56](https://github.com/microlinkhq/top-user-agents/issues/56)) ([7ab81ae](https://github.com/microlinkhq/top-user-agents/commit/7ab81ae47a7b615395124ac710a66b7203f1c1c6))
+
 ### 2.1.135 (2026-09-14)
 
 ### 2.1.134 (2026-09-07)

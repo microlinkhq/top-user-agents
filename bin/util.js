@@ -20,7 +20,8 @@ const EXCLUSIONS = [
   'retweet',
   'shap-user',
   'shields.io',
-  'supabaseedgeruntime/'
+  'supabaseedgeruntime/',
+  'thoughloom'
 ]
 
 const isBot = userAgent => {

@@ -28,6 +28,7 @@ test('published lists stay at 100 user agents', t => {
   t.true(index.length >= 99 && index.length <= 100)
   t.is(desktop.length + mobile.length, index.length)
   t.false(index.some(ua => ua.toLowerCase().includes('shap-user')))
+  t.false(index.some(ua => ua.toLowerCase().includes('thoughloom')))
 })
 
 test('selectTopUserAgents refuses short results', t => {
@@ -35,10 +36,11 @@ test('selectTopUserAgents refuses short results', t => {
     ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0', 10],
     ['Shields.io/4604d4e', 9],
     ['Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Shap-User/0.1.0', 9],
+    ['ThoughLoom/1.0 (retrieval-ladder)', 9],
     ['Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/120.0.0.0', 8]
   ]
 
-  t.deepEqual(selectTopUserAgents(data, 2), [data[0], data[3]])
+  t.deepEqual(selectTopUserAgents(data, 2), [data[0], data[4]])
 
   t.throws(() => selectTopUserAgents(data, 3), {
     message: /Unable to collect 3 non-bot user agents \(got 2\)/

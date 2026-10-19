@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.142 (2026-10-19)
+
+
+### Bug Fixes
+
+* exclude ThoughLoom retrieval agent ([#57](https://github.com/microlinkhq/top-user-agents/issues/57)) ([dbf5607](https://github.com/microlinkhq/top-user-agents/commit/dbf5607b97353dbaccf0b5fbca8bd943148da046))
+
 ### 2.1.141 (2026-10-19)
 
 ### 2.1.140 (2026-10-12)

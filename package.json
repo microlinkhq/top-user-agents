@@ -78,6 +78,9 @@
     "standard-version": "latest",
     "ua-parser-js": "latest"
   },
+  "engines": {
+    "node": ">= 16"
+  },
   "files": [
     "src"
   ],

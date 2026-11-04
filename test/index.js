@@ -11,6 +11,8 @@ const CHROME_WINDOWS =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36'
 const SAFARI_MACOS =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15'
+const FIREFOX_WINDOWS =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0'
 
 const ISSUE_60_ENTRIES = [
   'Event-Admin/1.0 (thumbnail)',
@@ -26,7 +28,13 @@ const PREVIOUSLY_EXCLUDED = [
   'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Shap-User/0.1.0',
   'ThoughLoom/1.0 (retrieval-ladder)',
   'Deno/2.1.4 (variant; SupabaseEdgeRuntime/1.69.25)',
-  'Dart/3.8 (dart:io)'
+  'Dart/3.8 (dart:io)',
+  'autofill',
+  'cfnetwork',
+  'claude',
+  'cloudinary',
+  'networkingextension',
+  'retweet'
 ]
 
 const published = {
@@ -79,10 +87,40 @@ test('selectTopUserAgents keeps ranking order and drops non-browsers', t => {
     [ISSUE_60_ENTRIES[0], 9],
     [ISSUE_60_ENTRIES[2], 9],
     [PREVIOUSLY_EXCLUDED[0], 9],
-    [SAFARI_MACOS, 8]
+    [SAFARI_MACOS, 8],
+    [FIREFOX_WINDOWS, 7]
   ]
 
   t.deepEqual(selectTopUserAgents(data, 2), [data[0], data[4]])
+})
+
+test.serial('logs rejected user agents only', t => {
+  const logfmt = require.cache[require.resolve('debug-logfmt')]
+  const debug = logfmt.children.find(
+    child => typeof child.exports.enable === 'function'
+  )
+  const lines = []
+  const write = process.stderr.write
+  const previousDebug = process.env.DEBUG
+
+  debug.exports.enable('ua:rejected')
+  process.stderr.write = chunk => {
+    lines.push(String(chunk))
+    return true
+  }
+
+  try {
+    t.true(isRealBrowser(CHROME_WINDOWS))
+    t.false(isRealBrowser(ISSUE_60_ENTRIES[0]))
+  } finally {
+    process.stderr.write = write
+    if (previousDebug === undefined) debug.exports.disable()
+    else debug.exports.enable(previousDebug)
+  }
+
+  const logged = lines.join('')
+  t.true(logged.includes(ISSUE_60_ENTRIES[0]))
+  t.false(logged.includes('Chrome/156.0.0.0'))
 })
 
 test('selectTopUserAgents refuses short results', t => {

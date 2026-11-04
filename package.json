@@ -71,7 +71,6 @@
     "git-authors-cli": "latest",
     "github-generate-release": "latest",
     "ioredis": "latest",
-    "isbot": "latest",
     "nano-staged": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",

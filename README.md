@@ -30,7 +30,7 @@ Most user-agent lists on the Internet are **outdated** or **unmaintained**. This
 
 - Collected from real traffic at [microlink.io](https://microlink.io) (+300M requests/month)
 - Automatically updated via CI/CD pipeline
-- Only real browsers: bots, HTTP libraries, Electron apps, in-app webviews and hand-written fakes are dropped
+- Only strings shaped like real browsers: bots, HTTP libraries, Electron apps, in-app webviews and malformed fakes are dropped
 - Covers Chrome, Firefox, Safari, Edge, and more
 
 ## Install

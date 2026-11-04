@@ -2,51 +2,139 @@
 
 const test = require('ava')
 
-const { selectTopUserAgents } = require('../bin/util')
+const { selectTopUserAgents, isRealBrowser } = require('../bin/util')
+
+const MAX_PUBLISHED_SIZE = 100
+const MIN_PUBLISHED_SIZE = 90
+
+const CHROME_WINDOWS =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36'
+const SAFARI_MACOS =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15'
+const FIREFOX_WINDOWS =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0'
+
+const ISSUE_60_ENTRIES = [
+  'Event-Admin/1.0 (thumbnail)',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)'
+]
+
+const PREVIOUSLY_EXCLUDED = [
+  'Shields.io/4604d4e',
+  'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Shap-User/0.1.0',
+  'ThoughLoom/1.0 (retrieval-ladder)',
+  'Deno/2.1.4 (variant; SupabaseEdgeRuntime/1.69.25)',
+  'Dart/3.8 (dart:io)',
+  'autofill',
+  'cfnetwork',
+  'claude',
+  'cloudinary',
+  'networkingextension',
+  'retweet'
+]
+
+const published = {
+  index: require('../src/index.json'),
+  desktop: require('../src/desktop.json'),
+  mobile: require('../src/mobile.json')
+}
 
 test('all', t => {
-  t.deepEqual(require('top-user-agents'), require('../src/index.json'))
+  t.deepEqual(require('top-user-agents'), published.index)
 })
 
 test('mobile', t => {
-  t.deepEqual(require('top-user-agents/mobile'), require('../src/mobile.json'))
+  t.deepEqual(require('top-user-agents/mobile'), published.mobile)
 })
 
 test('desktop', t => {
-  t.deepEqual(
-    require('top-user-agents/desktop'),
-    require('../src/desktop.json')
-  )
+  t.deepEqual(require('top-user-agents/desktop'), published.desktop)
 })
 
-test('published lists stay at 100 user agents', t => {
-  const index = require('../src/index.json')
-  const desktop = require('../src/desktop.json')
-  const mobile = require('../src/mobile.json')
-
-  // Allow 99 after a one-off crawl-agent removal; weekly update restores 100.
-  t.true(index.length >= 99 && index.length <= 100)
+test('published lists keep their size', t => {
+  const { index, desktop, mobile } = published
+  t.true(index.length >= MIN_PUBLISHED_SIZE)
+  t.true(index.length <= MAX_PUBLISHED_SIZE)
   t.is(desktop.length + mobile.length, index.length)
-  t.false(index.some(ua => ua.toLowerCase().includes('shap-user')))
-  t.false(index.some(ua => ua.toLowerCase().includes('thoughloom')))
+})
+
+for (const [name, list] of Object.entries(published)) {
+  test(`published ${name} list only has real browsers`, t => {
+    t.deepEqual(
+      list.filter(userAgent => !isRealBrowser(userAgent)),
+      []
+    )
+  })
+}
+
+test('rejects the entries reported in issue #60', t => {
+  for (const userAgent of ISSUE_60_ENTRIES) t.false(isRealBrowser(userAgent))
+})
+
+test('rejects what the old exclusion list caught', t => {
+  for (const userAgent of PREVIOUSLY_EXCLUDED) {
+    t.false(isRealBrowser(userAgent))
+  }
+})
+
+test('selectTopUserAgents keeps ranking order and drops non-browsers', t => {
+  const data = [
+    [CHROME_WINDOWS, 10],
+    [ISSUE_60_ENTRIES[0], 9],
+    [ISSUE_60_ENTRIES[2], 9],
+    [PREVIOUSLY_EXCLUDED[0], 9],
+    [SAFARI_MACOS, 8],
+    [FIREFOX_WINDOWS, 7]
+  ]
+
+  t.deepEqual(selectTopUserAgents(data, 2), [data[0], data[4]])
+})
+
+test.serial('logs rejected user agents only', t => {
+  const logfmt = require.cache[require.resolve('debug-logfmt')]
+  const debug = logfmt.children.find(
+    child => typeof child.exports.enable === 'function'
+  )
+  const lines = []
+  const write = process.stderr.write
+  const previousDebug = process.env.DEBUG
+
+  debug.exports.enable('ua:rejected')
+  process.stderr.write = chunk => {
+    lines.push(String(chunk))
+    return true
+  }
+
+  try {
+    t.true(isRealBrowser(CHROME_WINDOWS))
+    t.false(isRealBrowser(ISSUE_60_ENTRIES[0]))
+  } finally {
+    process.stderr.write = write
+    if (previousDebug === undefined) debug.exports.disable()
+    else debug.exports.enable(previousDebug)
+  }
+
+  const logged = lines.join('')
+  t.true(logged.includes(ISSUE_60_ENTRIES[0]))
+  t.false(logged.includes('Chrome/156.0.0.0'))
 })
 
 test('selectTopUserAgents refuses short results', t => {
   const data = [
-    ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0', 10],
-    ['Shields.io/4604d4e', 9],
-    ['Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Shap-User/0.1.0', 9],
-    ['ThoughLoom/1.0 (retrieval-ladder)', 9],
-    ['Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/120.0.0.0', 8]
+    [CHROME_WINDOWS, 10],
+    [ISSUE_60_ENTRIES[0], 9],
+    [SAFARI_MACOS, 8]
   ]
 
-  t.deepEqual(selectTopUserAgents(data, 2), [data[0], data[4]])
-
   t.throws(() => selectTopUserAgents(data, 3), {
-    message: /Unable to collect 3 non-bot user agents \(got 2\)/
+    message: /Unable to collect 3 real browser user agents \(got 2\)/
   })
 
   t.throws(() => selectTopUserAgents([], 100), {
-    message: /Unable to collect 100 non-bot user agents \(got 0\)/
+    message: /Unable to collect 100 real browser user agents \(got 0\)/
   })
 })
